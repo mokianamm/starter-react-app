@@ -1,14 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import { history } from './utils/history';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  // <React.StrictMode>
+    <HistoryRouter history={history}>
+      <App />
+    </HistoryRouter>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
